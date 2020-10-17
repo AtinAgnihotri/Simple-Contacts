@@ -21,4 +21,9 @@ public class TestContactInsertion extends BaseTestCase{
         ContactValidationWorkflow.thenTestContactExistsInContactList();
     }
 
+    @Test
+    public void test_CornerCase_SavingContactWithoutAnyInfo() {
+        AddContactWorkflow.whenSavingEmptyContact();
+        ContactValidationWorkflow.thenContactsWarningToastShown();
+    }
 }
