@@ -23,4 +23,8 @@ public class ContactValidationWorkflow {
         assertTrue(GlobalUtils.checkIfViewDisplayed(allOf(withText(stringToCheck), withId(R.id.item_contact_name))));
     }
 
+    public static void thenContactsWarningToastShown() {
+        assertTrue(GlobalUtils.checkIfToastShown(GlobalUtils.TOAST_CONTACTS_INFO_EMPTY_WARNING));
+    }
+
 }
