@@ -27,4 +27,16 @@ public class ContactValidationWorkflow {
         assertTrue(GlobalUtils.checkIfToastShown(GlobalUtils.TOAST_CONTACTS_INFO_EMPTY_WARNING));
     }
 
+    public static void thenTestContactHasNewNumber() {
+        // Confirm we are back on Contacts Info page
+        assertTrue(GlobalUtils.checkIfViewDisplayed("Details"));
+
+        // Confirm that we have the new number
+        assertTrue(GlobalUtils.checkIfViewHasMatchingText(R.id.contact_number, GlobalUtils.TEST_NUMBER_ALT));
+    }
+
+    public static void thenTestContactDoesntExists() {
+        assertTrue(GlobalUtils.checkIfViewExists("No contacts found"));
+    }
+
 }
