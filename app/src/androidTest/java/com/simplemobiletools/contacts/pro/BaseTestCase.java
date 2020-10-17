@@ -17,7 +17,6 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-@RunWith(AndroidJUnit4.class)
 public class BaseTestCase {
 
     protected UiDevice mUiDevice;
@@ -45,5 +44,6 @@ public class BaseTestCase {
         mUiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
 
     }
+    
 
 }
