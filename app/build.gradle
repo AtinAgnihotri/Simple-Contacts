@@ -20,6 +20,8 @@ android {
         versionCode 76
         versionName "6.13.0"
         setProperty("archivesBaseName", "contacts")
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
     }
 
     signingConfigs {
@@ -53,6 +55,11 @@ android {
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
+    }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR' // Test Orchestrators
+        animationsDisabled true
     }
 }
 
