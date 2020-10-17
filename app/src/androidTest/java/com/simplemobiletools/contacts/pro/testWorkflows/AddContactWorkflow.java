@@ -16,4 +16,12 @@ public class AddContactWorkflow {
             AddContactsUtils.insertATestContact();
     }
 
+    public static void whenTestContactAddedOnContactsList() {
+        AddContactsUtils.insertATestContact();
+    }
+
+    public static void whenSavingEmptyContact() {
+        AddContactsUtils.insertEmptyContact();
+    }
+
 }
