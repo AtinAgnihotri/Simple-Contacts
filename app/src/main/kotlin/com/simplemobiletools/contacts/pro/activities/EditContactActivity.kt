@@ -873,6 +873,13 @@ class EditContactActivity : ContactActivity() {
             notes = contact_notes.value
             websites = getFilledWebsites()
 
+            // region Toast if no info added - Added by me
+            if (firstName.equals("")  && surname.equals("") && phoneNumbers.size == 0) {
+                toast(R.string.please_add_some_info)
+                return
+            }
+            // endregion
+
             val company = contact_organization_company.value
             val jobPosition = contact_organization_job_position.value
             organization = Organization(company, jobPosition)
