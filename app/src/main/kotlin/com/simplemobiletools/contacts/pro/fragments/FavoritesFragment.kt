@@ -2,6 +2,7 @@ package com.simplemobiletools.contacts.pro.fragments
 
 import android.content.Context
 import android.util.AttributeSet
+import android.widget.Toast
 import com.simplemobiletools.commons.helpers.TAB_FAVORITES
 import com.simplemobiletools.contacts.pro.activities.MainActivity
 import com.simplemobiletools.contacts.pro.activities.SimpleActivity
@@ -19,6 +20,14 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     }
 
     private fun showAddFavoritesDialog() {
+
+        // region Show if no contacts added
+        if (allContacts.size == 0) {
+            Toast.makeText(this.context, "No Contacts to favorite", Toast.LENGTH_SHORT).show()
+            return
+        }
+        // endregion
+
         SelectContactsDialog(activity!!, allContacts, true, false) { addedContacts, removedContacts ->
             ContactsHelper(activity as SimpleActivity).apply {
                 addFavorites(addedContacts)
