@@ -12,12 +12,19 @@ import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
 public class TestContactActions extends BaseTestCase {
-    
+
     @Test
     public void test_E2E_EditContactInContactsList() {
         AddContactWorkflow.givenTestContactAddedOnContactsList();
         ContactActionsWorkflow.whenTestContactNumberEdited();
         ContactValidationWorkflow.thenTestContactHasNewNumber();
+    }
+
+    @Test
+    public void test_E2E_DeleteContactInContactsList() {
+        AddContactWorkflow.givenTestContactAddedOnContactsList();
+        ContactActionsWorkflow.whenTestContactNumberDeleted();
+        ContactValidationWorkflow.thenTestContactDoesntExists();
     }
 
 }

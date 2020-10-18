@@ -36,6 +36,9 @@ public class ContactValidationWorkflow {
     }
 
     public static void thenTestContactDoesntExists() {
+        // Pause Added as Contact list takes time after deleting contact to redraw
+        GlobalUtils.pauseTestFor(500);
+
         assertTrue(GlobalUtils.checkIfViewExists("No contacts found"));
     }
 
