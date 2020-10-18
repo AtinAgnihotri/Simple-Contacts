@@ -11,20 +11,21 @@ import static org.hamcrest.Matchers.allOf;
 
 public class ContactInfoUtils {
     public static Matcher getContactItem(String contactName){
-        return allOf(
-                withId(R.id.item_contact_frame),
-                withChild(
-                        allOf(
-                                withId(R.id.item_contact_holder),
-                                withChild(
-                                        allOf(
-                                                withId(R.id.item_contact_name),
-                                                withText(contactName)
-                                        )
-                                )
-                        )
-                )
-        );
+//        return allOf(
+//                withId(R.id.item_contact_frame),
+//                withChild(
+//                        allOf(
+//                                withId(R.id.item_contact_holder),
+//                                withChild(
+//                                        allOf(
+//                                                withId(R.id.item_contact_name),
+//                                                withText(contactName)
+//                                        )
+//                                )
+//                        )
+//                )
+//        );
+        return withText(contactName);
     }
 
     public static void goToContactInfoFromContactList(String contactName) {
