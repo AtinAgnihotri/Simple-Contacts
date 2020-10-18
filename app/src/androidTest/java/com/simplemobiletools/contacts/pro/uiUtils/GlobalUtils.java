@@ -282,8 +282,7 @@ public class GlobalUtils {
 
                 @Override
                 public void perform(UiController uiController, View view) {
-                    //the execution will continue after .perform(...) todo: finish espresso isElementAvailable
-
+                    //the execution will continue after .perform(...)
                 }
             });
 

@@ -23,7 +23,7 @@ public class TestContactActions extends BaseTestCase {
     @Test
     public void test_E2E_DeleteContactInContactsList() {
         AddContactWorkflow.givenTestContactAddedOnContactsList();
-        ContactActionsWorkflow.whenTestContactNumberDeleted();
+        ContactActionsWorkflow.whenTestContactNumberDeleted(mUiDevice);
         ContactValidationWorkflow.thenTestContactDoesntExists(mUiDevice);
     }
 
