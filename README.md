@@ -15,7 +15,8 @@ Here is the Test Table
 | T002_P0 | P0 | E2E | Edit a number in a saved contact. | Verify that given a saved contact, user can edit the said contact to change the phone number | `test_E2E_EditContactInContactsList` |
 | T003_P0 | P0 | E2E | Delete a saved contact. | Verify that user can save a phone number into a new contact with new name | `test_E2E_DeleteContactInContactsList` |
 | T004_P0 | P0 | E2E | Search for a saved contact | Verify that given a saved contact, user can delete the aforementioned contact. | `test_E2E_SearchContactInContactsList` |
-| T005_P1 | P1 | Corner Case | User tries to save a contact without filling in any information. | Verify that when user tries to save a contact without filing in either contact name or phone number, user is notified of the same and the contact is not saved. | `test_CornerCase_SavingContactWithoutAnyInfo` |
+| T005_P0 | P0 | E2E | Group selected contacts into a new group | Verify that given multiple saved contacts, user can select a subset of the saved contacts and group them into a particular group | `test_E2E_ContactGroupingInContactsList` |
+| T006_P1 | P1 | Corner Case | User tries to save a contact without filling in any information. | Verify that when user tries to save a contact without filing in either contact name or phone number, user is notified of the same and the contact is not saved. | `test_CornerCase_SavingContactWithoutAnyInfo` |
 
 
 
