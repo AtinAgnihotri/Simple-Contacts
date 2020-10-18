@@ -13,7 +13,7 @@ public class TestContactGroups extends BaseTestCase{
 
     @Test
     public void test_E2E_ContactGroupingInContactsList() {
-        AddContactWorkflow.givenMultipleTestContactAddedOnContactsList(false);
+        AddContactWorkflow.givenMultipleTestContactAddedOnContactsList(10, false);
         GroupsWorkflow.whenFirstThreeContactsAreSelectedAndGrouped();
         GroupsWorkflow.thenTestGroupHasFirstThreeContacts();
     }

@@ -8,8 +8,8 @@ public class AddContactWorkflow {
         AddContactsUtils.insertATestContact();
     }
 
-    public static void givenMultipleTestContactAddedOnContactsList(boolean addNonNumberedContact) {
-        AddContactsUtils.insertMultipleTestContacts(15);
+    public static void givenMultipleTestContactAddedOnContactsList(int numberOfContacts, boolean addNonNumberedContact) {
+        AddContactsUtils.insertMultipleTestContacts(numberOfContacts);
 
         // Add First Test Contact if addNonNumberedContact is true
         if (addNonNumberedContact)

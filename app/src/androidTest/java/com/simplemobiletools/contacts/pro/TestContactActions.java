@@ -29,7 +29,7 @@ public class TestContactActions extends BaseTestCase {
 
     @Test
     public void test_E2E_SearchContactInContactsList() {
-        AddContactWorkflow.givenMultipleTestContactAddedOnContactsList(true);
+        AddContactWorkflow.givenMultipleTestContactAddedOnContactsList(15, true);
         ContactActionsWorkflow.whenFirstTestContactIsSearched();
         ContactValidationWorkflow.thenOnlyTestContactExistsInContactList();
     }
