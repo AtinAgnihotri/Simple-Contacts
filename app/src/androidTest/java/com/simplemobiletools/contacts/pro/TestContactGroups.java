@@ -10,7 +10,7 @@ import com.simplemobiletools.contacts.pro.testWorkflows.GroupsWorkflow;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-//@RunWith(AndroidJUnit4.class)
+@RunWith(AndroidJUnit4.class)
 public class TestContactGroups extends BaseTestCase{
 
     @Test

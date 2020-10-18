@@ -4,6 +4,7 @@ import androidx.test.uiautomator.By;
 import androidx.test.uiautomator.UiDevice;
 
 import com.simplemobiletools.contacts.pro.R;
+import com.simplemobiletools.contacts.pro.uiUtils.CustomMatchersUtils;
 import com.simplemobiletools.contacts.pro.uiUtils.GlobalUtils;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -23,16 +24,18 @@ public class ContactValidationWorkflow {
                 .append(" ")
                 .append(GlobalUtils.TEST_SURNAME)
                 .toString();
-        assertTrue(GlobalUtils.checkIfViewExists(allOf(withText(stringToCheck), withId(R.id.item_contact_name))));
+        assertTrue(GlobalUtils.isElementAvailable(onView(allOf(withText(stringToCheck), withId(R.id.item_contact_name)))));
     }
 
     public static void thenContactsWarningToastShown() {
-        assertTrue(GlobalUtils.checkIfToastShown(GlobalUtils.TOAST_CONTACTS_INFO_EMPTY_WARNING));
+//        assertTrue(GlobalUtils.checkIfToastShown(GlobalUtils.TOAST_CONTACTS_INFO_EMPTY_WARNING));
+        assertTrue(GlobalUtils.isElementAvailable(onView(withText(GlobalUtils.TOAST_CONTACTS_INFO_EMPTY_WARNING)).inRoot(CustomMatchersUtils.isToast())));
     }
 
     public static void thenTestContactHasNewNumber(UiDevice mUiDevice) {
         // Confirm we are back on Contacts Info page
-        assertTrue(GlobalUtils.checkIfViewDisplayed("Details"));
+//        assertTrue(GlobalUtils.checkIfViewDisplayed("Details"));
+        assertTrue(GlobalUtils.isElementAvailable(mUiDevice, By.text("Details")));
 
         // Confirm that we have the new number
 //        assertTrue(GlobalUtils.checkIfViewHasMatchingText(R.id.contact_number, GlobalUtils.TEST_NUMBER_ALT));

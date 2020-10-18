@@ -6,11 +6,14 @@ import androidx.test.uiautomator.UiDevice;
 import com.simplemobiletools.contacts.pro.R;
 import com.simplemobiletools.contacts.pro.uiUtils.AddContactsUtils;
 import com.simplemobiletools.contacts.pro.uiUtils.ContactInfoUtils;
+import com.simplemobiletools.contacts.pro.uiUtils.CustomMatchersUtils;
 import com.simplemobiletools.contacts.pro.uiUtils.GlobalUtils;
 import com.simplemobiletools.contacts.pro.uiUtils.TabSwitchingUtils;
 
+import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 import static org.junit.Assert.assertTrue;
 
@@ -75,6 +78,7 @@ public class GroupsWorkflow {
         // Pause to wait for Toast before instrumentation closes
         GlobalUtils.pauseTestFor(GlobalUtils.PAUSE_STANDARD_200);
 
-        assertTrue(GlobalUtils.checkIfToastShown(GlobalUtils.TOAST_EMPTY_GRP_NAME_WARNING));
+//        assertTrue(GlobalUtils.checkIfToastShown(GlobalUtils.TOAST_EMPTY_GRP_NAME_WARNING));
+        assertTrue(GlobalUtils.isElementAvailable(onView(withText(GlobalUtils.TOAST_EMPTY_GRP_NAME_WARNING)).inRoot(CustomMatchersUtils.isToast())));
     }
 }

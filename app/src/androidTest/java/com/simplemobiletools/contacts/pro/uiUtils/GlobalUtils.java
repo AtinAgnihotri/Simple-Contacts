@@ -1,6 +1,14 @@
 package com.simplemobiletools.contacts.pro.uiUtils;
 
+import android.view.View;
+
+import androidx.test.espresso.AmbiguousViewMatcherException;
+import androidx.test.espresso.NoActivityResumedException;
+import androidx.test.espresso.NoMatchingRootException;
 import androidx.test.espresso.NoMatchingViewException;
+import androidx.test.espresso.UiController;
+import androidx.test.espresso.ViewAction;
+import androidx.test.espresso.ViewInteraction;
 import androidx.test.uiautomator.BySelector;
 import androidx.test.uiautomator.UiDevice;
 import androidx.test.uiautomator.Until;
@@ -17,6 +25,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.hasChildCount;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.CoreMatchers.any;
 
 public class GlobalUtils {
 
@@ -243,6 +252,49 @@ public class GlobalUtils {
             Thread.sleep(miliseconds);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static boolean isElementAvailable(ViewInteraction mViewInteraction) {
+        long startTime = System.currentTimeMillis();
+        while (!exists(mViewInteraction)) {
+
+            long elapsed = System.currentTimeMillis() - startTime;
+            if (elapsed >= WAIT_STANDARD_5000) {
+                break;
+            }
+        }
+        return exists(mViewInteraction);
+    }
+
+    public static boolean exists(ViewInteraction interaction) {
+        try {
+            interaction.perform(new ViewAction() {
+                @Override
+                public Matcher<View> getConstraints() {
+                    return any(View.class);
+                }
+
+                @Override
+                public String getDescription() {
+                    return "check for existence";
+                }
+
+                @Override
+                public void perform(UiController uiController, View view) {
+                    //the execution will continue after .perform(...) todo: finish espresso isElementAvailable
+
+                }
+            });
+
+            return true;
+        } catch (AmbiguousViewMatcherException ex) {
+            // if there's any interaction later with the same matcher, that'll fail anyway
+            return true; // we found more than one
+        } catch (NoMatchingViewException | NoActivityResumedException | NoMatchingRootException ex) {
+            return false;
+        } catch (Exception e) {
+            return false;
         }
     }
 
