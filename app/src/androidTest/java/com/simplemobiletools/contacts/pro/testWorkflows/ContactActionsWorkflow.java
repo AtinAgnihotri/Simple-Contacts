@@ -1,5 +1,7 @@
 package com.simplemobiletools.contacts.pro.testWorkflows;
 
+import android.provider.Settings;
+
 import com.simplemobiletools.contacts.pro.R;
 import com.simplemobiletools.contacts.pro.uiUtils.ContactInfoUtils;
 import com.simplemobiletools.contacts.pro.uiUtils.GlobalUtils;
@@ -7,6 +9,9 @@ import com.simplemobiletools.contacts.pro.uiUtils.GlobalUtils;
 public class ContactActionsWorkflow {
 
     public static void whenTestContactNumberEdited() {
+        // Pause as UI takes time to redraw after Updating Number
+        GlobalUtils.pauseTestFor(GlobalUtils.PAUSE_STANDARD_500);
+
         // Name of the New Contact
         String stringToCheck = new StringBuilder(GlobalUtils.TEST_FIRST_NAME)
                 .append(" ")

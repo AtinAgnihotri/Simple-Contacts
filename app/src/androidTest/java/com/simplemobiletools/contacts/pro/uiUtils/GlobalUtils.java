@@ -27,6 +27,7 @@ public class GlobalUtils {
     public static final String TOAST_CONTACTS_EMPTY_WARNING = "No Contacts to favorite";
     public static final String TOAST_EMPTY_GRP_NAME_WARNING = "Please enter a name";
     public static final String SPLASH_ACTIVITY_PKG = "com.simplemobiletools.contacts.pro.activities.SplashActivity";
+    public static final int PAUSE_STANDARD_500 = 500;
     public static final int LAUNCH_TIMEOUT = 5000;
 
     public static void clickItem (int resourceId) {
