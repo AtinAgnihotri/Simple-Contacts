@@ -1,5 +1,8 @@
 package com.simplemobiletools.contacts.pro.testWorkflows;
 
+import androidx.test.uiautomator.By;
+import androidx.test.uiautomator.UiDevice;
+
 import com.simplemobiletools.contacts.pro.R;
 import com.simplemobiletools.contacts.pro.uiUtils.AddContactsUtils;
 import com.simplemobiletools.contacts.pro.uiUtils.ContactInfoUtils;
@@ -59,11 +62,11 @@ public class GroupsWorkflow {
 
     }
 
-    public static void thenTestGroupHasFirstThreeContacts() {
+    public static void thenTestGroupHasFirstThreeContacts(UiDevice mUiDevice) {
         boolean has3Contacts = GlobalUtils.checkIfViewHasNChildren(R.id.group_contacts_list, 3);
         boolean first3ContactsMatch = true;
         for (String contactName : AddContactsUtils.getFirstNContactNames(3)){
-            first3ContactsMatch = first3ContactsMatch && GlobalUtils.checkIfViewExists(contactName);
+            first3ContactsMatch = first3ContactsMatch && GlobalUtils.isElementAvailable(mUiDevice, By.text(contactName));
         }
         assertTrue(has3Contacts && first3ContactsMatch);
     }

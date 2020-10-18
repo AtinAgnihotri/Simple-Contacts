@@ -17,21 +17,21 @@ public class TestContactActions extends BaseTestCase {
     public void test_E2E_EditContactInContactsList() {
         AddContactWorkflow.givenTestContactAddedOnContactsList();
         ContactActionsWorkflow.whenTestContactNumberEdited();
-        ContactValidationWorkflow.thenTestContactHasNewNumber();
+        ContactValidationWorkflow.thenTestContactHasNewNumber(mUiDevice);
     }
 
     @Test
     public void test_E2E_DeleteContactInContactsList() {
         AddContactWorkflow.givenTestContactAddedOnContactsList();
         ContactActionsWorkflow.whenTestContactNumberDeleted();
-        ContactValidationWorkflow.thenTestContactDoesntExists();
+        ContactValidationWorkflow.thenTestContactDoesntExists(mUiDevice);
     }
 
     @Test
     public void test_E2E_SearchContactInContactsList() {
         AddContactWorkflow.givenMultipleTestContactAddedOnContactsList(15, true);
         ContactActionsWorkflow.whenFirstTestContactIsSearched();
-        ContactValidationWorkflow.thenOnlyTestContactExistsInContactList();
+        ContactValidationWorkflow.thenOnlyTestContactExistsInContactList(mUiDevice);
     }
 
 }

@@ -2,6 +2,8 @@ package com.simplemobiletools.contacts.pro.uiUtils;
 
 import androidx.test.espresso.NoMatchingViewException;
 import androidx.test.uiautomator.BySelector;
+import androidx.test.uiautomator.UiDevice;
+import androidx.test.uiautomator.Until;
 
 import org.hamcrest.Matcher;
 
@@ -28,6 +30,7 @@ public class GlobalUtils {
     public static final String TOAST_EMPTY_GRP_NAME_WARNING = "Please enter a name";
     public static final String SPLASH_ACTIVITY_PKG = "com.simplemobiletools.contacts.pro.activities.SplashActivity";
     public static final int PAUSE_STANDARD_500 = 500;
+    public static final int WAIT_STANDARD_5000 = 500;
     public static final int PAUSE_STANDARD_200 = 200;
     public static final int LAUNCH_TIMEOUT = 5000;
 
@@ -140,14 +143,10 @@ public class GlobalUtils {
         return viewDisplayed;
     }
 
-//    public static boolean isElementAvailable(BySelector mBySelector, long timeOutInMS) {
-//
-//        if (!_mDevice.wait(Until.hasObject(mBySelector), timeOutInMS))
-//            UiTestBaseCase.dimissLocationServicePopUp();
-//
-//
-//        return _mDevice.wait(Until.hasObject(mBySelector), timeOutInMS);
-//    }
+    public static boolean isElementAvailable(UiDevice mUiDevice, BySelector mBySelector) {
+
+        return mUiDevice.wait(Until.hasObject(mBySelector), WAIT_STANDARD_5000);
+    }
 
     public static boolean checkIfViewDisplayed(Matcher matcher) {
         boolean viewDisplayed = true;
@@ -246,4 +245,5 @@ public class GlobalUtils {
             e.printStackTrace();
         }
     }
+
 }

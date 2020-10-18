@@ -17,7 +17,7 @@ public class TestContactGroups extends BaseTestCase{
     public void test_E2E_ContactGroupingInContactsList() {
         AddContactWorkflow.givenMultipleTestContactAddedOnContactsList(10, false);
         GroupsWorkflow.whenFirstThreeContactsAreSelectedAndGrouped();
-        GroupsWorkflow.thenTestGroupHasFirstThreeContacts();
+        GroupsWorkflow.thenTestGroupHasFirstThreeContacts(mUiDevice);
     }
 
     @Test
