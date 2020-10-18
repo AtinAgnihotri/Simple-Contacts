@@ -9,6 +9,7 @@ import androidx.test.espresso.NoMatchingViewException;
 import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.ViewInteraction;
+import androidx.test.uiautomator.By;
 import androidx.test.uiautomator.BySelector;
 import androidx.test.uiautomator.UiDevice;
 import androidx.test.uiautomator.Until;
@@ -295,6 +296,10 @@ public class GlobalUtils {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public static void waitTillObjectExists(UiDevice mUiDevice, BySelector bySelector){
+        mUiDevice.wait(Until.hasObject(bySelector), GlobalUtils.WAIT_STANDARD_5000);
     }
 
 }

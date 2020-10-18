@@ -1,5 +1,9 @@
 package com.simplemobiletools.contacts.pro.uiUtils;
 
+import androidx.test.uiautomator.By;
+import androidx.test.uiautomator.UiDevice;
+import androidx.test.uiautomator.Until;
+
 import com.simplemobiletools.contacts.pro.R;
 
 import org.hamcrest.Matcher;
@@ -11,20 +15,6 @@ import static org.hamcrest.Matchers.allOf;
 
 public class ContactInfoUtils {
     public static Matcher getContactItem(String contactName){
-//        return allOf(
-//                withId(R.id.item_contact_frame),
-//                withChild(
-//                        allOf(
-//                                withId(R.id.item_contact_holder),
-//                                withChild(
-//                                        allOf(
-//                                                withId(R.id.item_contact_name),
-//                                                withText(contactName)
-//                                        )
-//                                )
-//                        )
-//                )
-//        );
         return withText(contactName);
     }
 
@@ -42,24 +32,9 @@ public class ContactInfoUtils {
         );
     }
 
+    public static void waitTillContactExists(UiDevice mUiDevice, String contactName) {
+        GlobalUtils.waitTillObjectExists(mUiDevice, By.text(contactName));
+    }
 
-//    public static void goToContactInfoFromContactList(int contactIndex) {
-//        // Click the contact item with the new name
-//        GlobalUtils.clickItem(
-//                allOf(
-//                        withId(R.id.item_contact_frame),
-//                        withChild(
-//                                allOf(
-//                                        withId(R.id.item_contact_holder),
-//                                        withChild(
-//                                                allOf(
-//                                                        withId(R.id.item_contact_name),
-//                                                        withInde
-//                                                )
-//                                        )
-//                                )
-//                        )
-//                )
-//        );
-//    }
+
 }

@@ -29,6 +29,5 @@ public class FavoritesWorkflow {
         GlobalUtils.pauseTestFor(GlobalUtils.PAUSE_STANDARD_200);
 
         assertTrue(GlobalUtils.checkIfToastShown(GlobalUtils.TOAST_CONTACTS_EMPTY_WARNING));
-//        assertTrue(GlobalUtils.isElementAvailable(onView(withText(GlobalUtils.TOAST_CONTACTS_EMPTY_WARNING)).inRoot(CustomMatchersUtils.isToast())));
     }
 }

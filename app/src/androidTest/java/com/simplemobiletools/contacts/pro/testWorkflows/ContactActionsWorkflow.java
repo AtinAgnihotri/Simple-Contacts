@@ -46,7 +46,7 @@ public class ContactActionsWorkflow {
                 .toString();
 
         // Wait Till Number Comes
-        mUiDevice.wait(Until.hasObject(By.text(stringToCheck)), GlobalUtils.WAIT_STANDARD_5000);
+        ContactInfoUtils.waitTillContactExists(mUiDevice, stringToCheck);
 
         // Go to Contact Info page
         ContactInfoUtils.goToContactInfoFromContactList(stringToCheck);
