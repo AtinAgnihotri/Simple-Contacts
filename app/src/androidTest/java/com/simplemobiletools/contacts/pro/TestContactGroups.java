@@ -18,4 +18,10 @@ public class TestContactGroups extends BaseTestCase{
         GroupsWorkflow.thenTestGroupHasFirstThreeContacts();
     }
 
+    @Test
+    public void test_CornerCase_AddNewGroupWithoutName() {
+        GroupsWorkflow.whenAddingNewGroupWithoutName();
+        GroupsWorkflow.thenGroupsWarningToastShown();
+    }
+
 }
