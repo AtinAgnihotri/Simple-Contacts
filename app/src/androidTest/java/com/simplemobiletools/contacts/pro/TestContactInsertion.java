@@ -22,7 +22,7 @@ public class TestContactInsertion extends BaseTestCase{
     }
 
     @Test
-    public void test_CornerCase_SavingContactWithoutAnyInfo() {
+    public void test_CornerCase_SaveContactWithoutAnyInfo() {
         AddContactWorkflow.whenSavingEmptyContact();
         ContactValidationWorkflow.thenContactsWarningToastShown();
     }

@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class TestContactFavorites extends BaseTestCase {
     @Test
-    public void test_CornerCase_AddingFavoriteWhenNoContactsSaved() {
+    public void test_CornerCase_AddFavoriteWhenNoContactsSaved() {
         FavoritesWorkflow.whenAddingFavoriteWithoutAnyContacts();
         FavoritesWorkflow.thenFavoritesWarningToastShown();
     }
