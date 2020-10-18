@@ -28,29 +28,36 @@ public class GlobalUtils {
     public static final String TOAST_EMPTY_GRP_NAME_WARNING = "Please enter a name";
     public static final String SPLASH_ACTIVITY_PKG = "com.simplemobiletools.contacts.pro.activities.SplashActivity";
     public static final int PAUSE_STANDARD_500 = 500;
+    public static final int PAUSE_STANDARD_200 = 200;
     public static final int LAUNCH_TIMEOUT = 5000;
 
     public static void clickItem (int resourceId) {
+        GlobalUtils.pauseTestFor(PAUSE_STANDARD_200);
         onView(withId(resourceId)).perform(click());
     }
 
     public static void clickItem (String withGivenText) {
+        GlobalUtils.pauseTestFor(PAUSE_STANDARD_200);
         onView(withText(withGivenText)).perform(click());
     }
 
     public static void clickItem (Matcher matcher) {
+        GlobalUtils.pauseTestFor(PAUSE_STANDARD_200);
         onView(matcher).perform(click());
     }
 
     public static void longClickItem (int resourceId) {
+        GlobalUtils.pauseTestFor(PAUSE_STANDARD_200);
         onView(withId(resourceId)).perform(longClick());
     }
 
     public static void longClickItem (String withGivenText) {
+        GlobalUtils.pauseTestFor(PAUSE_STANDARD_200);
         onView(withText(withGivenText)).perform(longClick());
     }
 
     public static void longClickItem (Matcher matcher) {
+        GlobalUtils.pauseTestFor(PAUSE_STANDARD_200);
         onView(matcher).perform(longClick());
     }
 
