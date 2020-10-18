@@ -22,6 +22,9 @@ public class FavoritesWorkflow {
     }
 
     public static void thenFavoritesWarningToastShown(){
+        // Pause to wait for Toast before instrumentation closes
+        GlobalUtils.pauseTestFor(GlobalUtils.PAUSE_STANDARD_200);
+
         assertTrue(GlobalUtils.checkIfToastShown(GlobalUtils.TOAST_CONTACTS_EMPTY_WARNING));
     }
 }

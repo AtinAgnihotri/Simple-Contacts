@@ -1,5 +1,7 @@
 package com.simplemobiletools.contacts.pro;
 
+import android.widget.Toast;
+
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.simplemobiletools.contacts.pro.testWorkflows.AddContactWorkflow;

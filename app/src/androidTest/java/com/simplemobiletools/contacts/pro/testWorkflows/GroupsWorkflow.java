@@ -69,6 +69,9 @@ public class GroupsWorkflow {
     }
 
     public static void thenGroupsWarningToastShown() {
+        // Pause to wait for Toast before instrumentation closes
+        GlobalUtils.pauseTestFor(GlobalUtils.PAUSE_STANDARD_200);
+
         assertTrue(GlobalUtils.checkIfToastShown(GlobalUtils.TOAST_EMPTY_GRP_NAME_WARNING));
     }
 }
