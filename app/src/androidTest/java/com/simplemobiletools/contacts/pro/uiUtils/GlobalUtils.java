@@ -1,6 +1,7 @@
 package com.simplemobiletools.contacts.pro.uiUtils;
 
 import androidx.test.espresso.NoMatchingViewException;
+import androidx.test.uiautomator.BySelector;
 
 import org.hamcrest.Matcher;
 
@@ -130,6 +131,15 @@ public class GlobalUtils {
 
         return viewDisplayed;
     }
+
+//    public static boolean isElementAvailable(BySelector mBySelector, long timeOutInMS) {
+//
+//        if (!_mDevice.wait(Until.hasObject(mBySelector), timeOutInMS))
+//            UiTestBaseCase.dimissLocationServicePopUp();
+//
+//
+//        return _mDevice.wait(Until.hasObject(mBySelector), timeOutInMS);
+//    }
 
     public static boolean checkIfViewDisplayed(Matcher matcher) {
         boolean viewDisplayed = true;

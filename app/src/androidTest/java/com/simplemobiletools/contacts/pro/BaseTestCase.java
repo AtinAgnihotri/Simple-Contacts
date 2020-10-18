@@ -44,6 +44,6 @@ public class BaseTestCase {
         mUiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
 
     }
-    
+
 
 }

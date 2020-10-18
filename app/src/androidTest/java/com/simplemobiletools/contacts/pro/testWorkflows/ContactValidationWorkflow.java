@@ -20,7 +20,7 @@ public class ContactValidationWorkflow {
                 .append(" ")
                 .append(GlobalUtils.TEST_SURNAME)
                 .toString();
-        assertTrue(GlobalUtils.checkIfViewDisplayed(allOf(withText(stringToCheck), withId(R.id.item_contact_name))));
+        assertTrue(GlobalUtils.checkIfViewExists(allOf(withText(stringToCheck), withId(R.id.item_contact_name))));
     }
 
     public static void thenContactsWarningToastShown() {
