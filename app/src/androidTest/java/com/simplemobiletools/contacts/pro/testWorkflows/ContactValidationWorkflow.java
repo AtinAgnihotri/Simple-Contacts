@@ -42,4 +42,30 @@ public class ContactValidationWorkflow {
         assertTrue(GlobalUtils.checkIfViewExists("No contacts found"));
     }
 
+    public static void thenOnlyTestContactExistsInContactList() {
+        // Check that the number has been added
+        String stringToCheck = new StringBuilder(GlobalUtils.TEST_FIRST_NAME)
+                .append(" ")
+                .append(GlobalUtils.TEST_SURNAME)
+                .toString();
+
+        boolean contactExists = GlobalUtils.checkIfViewDisplayed(allOf(withText(stringToCheck), withId(R.id.item_contact_name)));
+        boolean listHas1Contact = GlobalUtils.checkIfViewHasNChildren(
+                allOf(
+                        allOf(
+                            withId(R.id.fragment_list),
+                            withParent(allOf(withId(R.id.fragment_wrapper), withParent(withId(R.id.contacts_fragment))))
+                        )
+                    ),
+                1
+        );
+
+        assertTrue(contactExists && listHas1Contact);
+//        onView(allOf(
+//                withId(R.id.fragment_list),
+//                withParent(allOf(withId(R.id.fragment_wrapper), withParent(withId(R.id.contacts_fragment))))
+//        )).check(matches(hasChildCount(1)));
+
+    }
+
 }
