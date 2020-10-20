@@ -13,16 +13,18 @@ import org.junit.runner.RunWith;
  *
  */
 
-@LargeTest
+//@LargeTest
 @RunWith(AndroidJUnit4.class)
 public class TestContactInsertion extends BaseTestCase{
 
+    @LargeTest
     @Test
     public void test_E2E_AddContactToContactsList() {
         AddContactWorkflow.whenTestContactAddedOnContactsList();
         ContactValidationWorkflow.thenTestContactExistsInContactList();
     }
 
+    @LargeTest
     @Test
     public void test_CornerCase_SaveContactWithoutAnyInfo() {
         AddContactWorkflow.whenSavingEmptyContact();

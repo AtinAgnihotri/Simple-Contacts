@@ -11,10 +11,11 @@ import com.simplemobiletools.contacts.pro.testWorkflows.GroupsWorkflow;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-@LargeTest
+//@LargeTest
 @RunWith(AndroidJUnit4.class)
 public class TestContactGroups extends BaseTestCase{
 
+    @LargeTest
     @Test
     public void test_E2E_ContactGroupingInContactsList() {
         AddContactWorkflow.givenMultipleTestContactAddedOnContactsList(10, false);
@@ -22,6 +23,7 @@ public class TestContactGroups extends BaseTestCase{
         GroupsWorkflow.thenTestGroupHasFirstThreeContacts(mUiDevice);
     }
 
+    @LargeTest
     @Test
     public void test_CornerCase_AddNewGroupWithoutName() {
         GroupsWorkflow.whenAddingNewGroupWithoutName();

@@ -11,10 +11,11 @@ import org.jsoup.Connection;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-@LargeTest
+//@LargeTest
 @RunWith(AndroidJUnit4.class)
 public class TestContactActions extends BaseTestCase {
 
+    @LargeTest
     @Test
     public void test_E2E_EditContactInContactsList() {
         AddContactWorkflow.givenTestContactAddedOnContactsList();
@@ -22,6 +23,7 @@ public class TestContactActions extends BaseTestCase {
         ContactValidationWorkflow.thenTestContactHasNewNumber(mUiDevice);
     }
 
+    @LargeTest
     @Test
     public void test_E2E_DeleteContactInContactsList() {
         AddContactWorkflow.givenTestContactAddedOnContactsList();
@@ -29,6 +31,7 @@ public class TestContactActions extends BaseTestCase {
         ContactValidationWorkflow.thenTestContactDoesntExists(mUiDevice);
     }
 
+    @LargeTest
     @Test
     public void test_E2E_SearchContactInContactsList() {
         AddContactWorkflow.givenMultipleTestContactAddedOnContactsList(15, true);
