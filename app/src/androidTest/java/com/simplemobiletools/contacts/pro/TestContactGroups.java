@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 @LargeTest
 public class TestContactGroups extends BaseTestCase{
 
-    @Test
+    @LargeTest
     public void test_E2E_ContactGroupingInContactsList() {
         AddContactWorkflow.givenMultipleTestContactAddedOnContactsList(10, false);
         GroupsWorkflow.whenFirstThreeContactsAreSelectedAndGrouped();
