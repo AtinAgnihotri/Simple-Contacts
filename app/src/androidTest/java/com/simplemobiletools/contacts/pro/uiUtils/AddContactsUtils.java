@@ -73,4 +73,18 @@ public class AddContactsUtils {
         }
         return names;
     }
+
+    @NotNull
+    public static String [] getMtoNContactNames(int m, int n) {
+        String [] names = new String[n-m];
+        for (int i = 0; i < n - m; i++) {
+            names[i] = new StringBuilder(GlobalUtils.TEST_FIRST_NAME)
+                    .append(i)
+                    .append(" ")
+                    .append(GlobalUtils.TEST_SURNAME)
+                    .append(i)
+                    .toString();
+        }
+        return names;
+    }
 }

@@ -21,7 +21,7 @@ public class GroupsWorkflow {
 
     public static void whenFirstThreeContactsAreSelectedAndGrouped() {
         // Get the names of first three contacts
-        String [] firstThreeContacts = AddContactsUtils.getFirstNContactNames(3);
+        String [] firstThreeContacts = AddContactsUtils.getMtoNContactNames(1,4);
 
         // Long click first name to go into multi-selection mode
         GlobalUtils.longClickItem(ContactInfoUtils.getContactItem(firstThreeContacts[0]));
@@ -68,7 +68,8 @@ public class GroupsWorkflow {
     public static void thenTestGroupHasFirstThreeContacts(UiDevice mUiDevice) {
         boolean has3Contacts = GlobalUtils.checkIfViewHasNChildren(R.id.group_contacts_list, 3);
         boolean first3ContactsMatch = true;
-        for (String contactName : AddContactsUtils.getFirstNContactNames(3)){
+//        for (String contactName : AddContactsUtils.getFirstNContactNames(3)){
+        for (String contactName : AddContactsUtils.getMtoNContactNames(1,4)){
             first3ContactsMatch = first3ContactsMatch && GlobalUtils.isElementAvailable(mUiDevice, By.text(contactName));
         }
         assertTrue(has3Contacts && first3ContactsMatch);
