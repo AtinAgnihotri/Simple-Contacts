@@ -9,19 +9,12 @@ import com.simplemobiletools.contacts.pro.testWorkflows.ContactValidationWorkflo
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-/**
- *
- */
-
-//@LargeTest
 @RunWith(AndroidJUnit4.class)
-public class TestContactInsertion extends BaseTestCase{
-
+public class TestContactInsertionCornerCase extends BaseTestCase{
     @LargeTest
     @Test
-    public void test_E2E_AddContactToContactsList() {
-        AddContactWorkflow.whenTestContactAddedOnContactsList();
-        ContactValidationWorkflow.thenTestContactExistsInContactList();
+    public void test_CornerCase_SaveContactWithoutAnyInfo() {
+        AddContactWorkflow.whenSavingEmptyContact();
+        ContactValidationWorkflow.thenContactsWarningToastShown();
     }
-
 }

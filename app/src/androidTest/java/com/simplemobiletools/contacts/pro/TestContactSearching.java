@@ -7,30 +7,11 @@ import com.simplemobiletools.contacts.pro.testWorkflows.AddContactWorkflow;
 import com.simplemobiletools.contacts.pro.testWorkflows.ContactActionsWorkflow;
 import com.simplemobiletools.contacts.pro.testWorkflows.ContactValidationWorkflow;
 
-import org.jsoup.Connection;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-//@LargeTest
 @RunWith(AndroidJUnit4.class)
-public class TestContactActions extends BaseTestCase {
-
-    @LargeTest
-    @Test
-    public void test_E2E_EditContactInContactsList() {
-        AddContactWorkflow.givenTestContactAddedOnContactsList();
-        ContactActionsWorkflow.whenTestContactNumberEdited();
-        ContactValidationWorkflow.thenTestContactHasNewNumber(mUiDevice);
-    }
-
-    @LargeTest
-    @Test
-    public void test_E2E_DeleteContactInContactsList() {
-        AddContactWorkflow.givenTestContactAddedOnContactsList();
-        ContactActionsWorkflow.whenTestContactNumberDeleted(mUiDevice);
-        ContactValidationWorkflow.thenTestContactDoesntExists(mUiDevice);
-    }
-
+public class TestContactSearching extends BaseTestCase {
     @LargeTest
     @Test
     public void test_E2E_SearchContactInContactsList() {
@@ -38,5 +19,4 @@ public class TestContactActions extends BaseTestCase {
         ContactActionsWorkflow.whenFirstTestContactIsSearched();
         ContactValidationWorkflow.thenOnlyTestContactExistsInContactList(mUiDevice);
     }
-
 }
