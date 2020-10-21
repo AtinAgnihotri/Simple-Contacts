@@ -14,6 +14,7 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static com.schibsted.spain.barista.interaction.BaristaClickInteractions.longClickOn;
 import static org.hamcrest.Matchers.allOf;
 import static org.junit.Assert.assertTrue;
 
@@ -24,7 +25,7 @@ public class GroupsWorkflow {
         String [] firstThreeContacts = AddContactsUtils.getMtoNContactNames(1,4);
 
         // Long click first name to go into multi-selection mode
-        GlobalUtils.longClickItem(ContactInfoUtils.getContactItem(firstThreeContacts[0]));
+        longClickOn(firstThreeContacts[0]);
 
         // Click the other two normally to select them
         GlobalUtils.clickItem(ContactInfoUtils.getContactItem(firstThreeContacts[1]));

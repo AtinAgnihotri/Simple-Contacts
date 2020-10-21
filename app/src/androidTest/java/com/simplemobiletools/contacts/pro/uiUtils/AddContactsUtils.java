@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NotNull;
 
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
+import static com.schibsted.spain.barista.interaction.BaristaClickInteractions.clickOn;
 import static org.hamcrest.Matchers.allOf;
 
 public class AddContactsUtils {
@@ -22,9 +23,10 @@ public class AddContactsUtils {
 
     public static void insertATestContact() {
         // Go to add contact activity
-        GlobalUtils.clickItem(allOf(
-                withId(R.id.fragment_fab), withParent(withId(R.id.contacts_fragment))
-        ));
+//        GlobalUtils.clickItem(allOf(
+//                withId(R.id.fragment_fab), withParent(withId(R.id.contacts_fragment))
+//        ));
+        clickOn(R.id.fragment_fab);
 
         // Add
         // Add a basic Contact
