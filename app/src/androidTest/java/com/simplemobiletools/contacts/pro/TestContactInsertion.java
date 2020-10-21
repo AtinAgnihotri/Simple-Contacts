@@ -21,7 +21,7 @@ public class TestContactInsertion extends BaseTestCase{
     @Test
     public void test_E2E_AddContactToContactsList() {
         AddContactWorkflow.whenTestContactAddedOnContactsList();
-        ContactValidationWorkflow.thenTestContactExistsInContactList();
+        ContactValidationWorkflow.thenTestContactExistsInContactList(mUiDevice);
     }
 
 }

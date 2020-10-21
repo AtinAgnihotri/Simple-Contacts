@@ -35,6 +35,20 @@ public class AddContactsUtils {
         );
     }
 
+    public static void insertATestContactB() {
+        // Go to add contact activity
+//        GlobalUtils.clickItem(allOf(
+//                withId(R.id.fragment_fab), withParent(withId(R.id.contacts_fragment))
+//        ));
+        clickOn(R.id.fragment_fab);
+
+        // Add
+        // Add a basic Contact
+        AddContactsUtils.addBasicContactWorkflow(
+                GlobalUtils.TEST_FIRST_NAME, GlobalUtils.TEST_SURNAME, GlobalUtils.TEST_NUMBER
+        );
+    }
+
     public static void insertEmptyContact() {
         // Go to add contact activity
         GlobalUtils.clickItem(allOf(

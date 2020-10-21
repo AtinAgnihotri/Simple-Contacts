@@ -13,18 +13,21 @@ import static androidx.test.espresso.matcher.ViewMatchers.hasChildCount;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static com.schibsted.spain.barista.assertion.BaristaVisibilityAssertions.assertDisplayed;
 import static org.hamcrest.Matchers.allOf;
 import static org.junit.Assert.assertTrue;
 
 public class ContactValidationWorkflow {
 
-    public static void thenTestContactExistsInContactList() {
+    public static void thenTestContactExistsInContactList(UiDevice mUiDevice) {
         // Check that the number has been added
         String stringToCheck = new StringBuilder(GlobalUtils.TEST_FIRST_NAME)
                 .append(" ")
                 .append(GlobalUtils.TEST_SURNAME)
                 .toString();
-        assertTrue(GlobalUtils.isElementAvailable(onView(allOf(withText(stringToCheck), withId(R.id.item_contact_name)))));
+//        assertTrue(GlobalUtils.isElementAvailable(mUiDevice, By.text(stringToCheck)));
+        GlobalUtils.pauseTestFor(GlobalUtils.PAUSE_STANDARD_500);
+        assertDisplayed(stringToCheck);
     }
 
     public static void thenContactsWarningToastShown() {

@@ -1,6 +1,9 @@
 package com.simplemobiletools.contacts.pro.testWorkflows;
 
+import com.simplemobiletools.contacts.pro.R;
 import com.simplemobiletools.contacts.pro.uiUtils.AddContactsUtils;
+
+import static com.schibsted.spain.barista.interaction.BaristaClickInteractions.clickOn;
 
 public class AddContactWorkflow {
 
@@ -18,6 +21,7 @@ public class AddContactWorkflow {
 
     public static void whenTestContactAddedOnContactsList() {
         AddContactsUtils.insertATestContact();
+//        clickOn(R.id.fragment_fab);
     }
 
     public static void whenSavingEmptyContact() {

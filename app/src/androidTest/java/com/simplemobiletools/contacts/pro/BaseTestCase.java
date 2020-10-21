@@ -8,6 +8,7 @@ import androidx.test.rule.ActivityTestRule;
 import androidx.test.rule.GrantPermissionRule;
 import androidx.test.uiautomator.UiDevice;
 
+import com.schibsted.spain.barista.rule.BaristaRule;
 import com.schibsted.spain.barista.rule.cleardata.ClearDatabaseRule;
 import com.schibsted.spain.barista.rule.cleardata.ClearFilesRule;
 import com.schibsted.spain.barista.rule.cleardata.ClearPreferencesRule;
@@ -37,19 +38,22 @@ public class BaseTestCase {
             "android.permission.WRITE_CONTACTS"
     );
 
-    @Rule
-    public ActivityScenarioRule<SplashActivity> splashActivityActivityScenarioRule = new ActivityScenarioRule<>(SplashActivity.class);
+//    @Rule
+//    public ActivityScenarioRule<SplashActivity> splashActivityActivityScenarioRule = new ActivityScenarioRule<>(SplashActivity.class);
 //    public ActivityTestRule<SplashActivity> splashActivityActivityTestRule = new ActivityTestRule<>(SplashActivity.class);
-    public ActivityScenario<SplashActivity> mActivityScenario;
+//    public ActivityScenario<SplashActivity> mActivityScenario;
+
+//    @Rule
+//    public ClearPreferencesRule clearPreferencesRule = new ClearPreferencesRule();
+
+//    @Rule
+//    public ClearDatabaseRule clearDatabaseRule = new ClearDatabaseRule();
+
+//    @Rule
+//    public ClearFilesRule clearFilesRule = new ClearFilesRule();
 
     @Rule
-    public ClearPreferencesRule clearPreferencesRule = new ClearPreferencesRule();
-
-    @Rule
-    public ClearDatabaseRule clearDatabaseRule = new ClearDatabaseRule();
-
-    @Rule
-    public ClearFilesRule clearFilesRule = new ClearFilesRule();
+    public BaristaRule<MainActivity> mainActivityBaristaRule = BaristaRule.create(MainActivity.class);
 
 
     // Open the Launcher Activity of the App
@@ -62,15 +66,17 @@ public class BaseTestCase {
     protected void launchApplication() throws InterruptedException {
         // Init UiDevice
         mUiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
+        mainActivityBaristaRule.launchActivity();
 //        mUiDevice.pressHome();
 
-        mActivityScenario = splashActivityActivityScenarioRule.getScenario();
+//        mActivityScenario = splashActivityActivityScenarioRule.getScenario();
 
     }
 
     @After
     public void tearDown() {
-        mActivityScenario.close();
+
+//        mActivityScenario.close();
     }
 
 
