@@ -2,7 +2,6 @@
 <img src="https://app.bitrise.io/app/f66adee587e39430/status.svg?token=pLbYUTForaJ0eMCleHacaA&branch=master"/>
 
 <br>
-<br>
 
 <img alt="Logo" src="fastlane/metadata/android/en-US/images/icon.png" width="120" />
 
