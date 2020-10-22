@@ -1,7 +1,5 @@
 package com.simplemobiletools.contacts.pro;
 
-import android.widget.Toast;
-
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 
@@ -19,8 +17,8 @@ public class TestContactGroups extends BaseTestCase{
     @Test
     public void test_E2E_ContactGroupingInContactsList() {
         AddContactWorkflow.givenMultipleTestContactAddedOnContactsList(5, false);
-        GroupsWorkflow.whenFirstThreeContactsAreSelectedAndGrouped();
-        GroupsWorkflow.thenTestGroupHasFirstThreeContacts(mUiDevice);
+        GroupsWorkflow.whenFirstTwoContactsAreSelectedAndGrouped();
+        GroupsWorkflow.thenTestGroupHasFirstTwoContacts(mUiDevice);
     }
 
 
