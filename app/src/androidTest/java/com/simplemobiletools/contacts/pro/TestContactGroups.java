@@ -6,6 +6,7 @@ import androidx.test.filters.LargeTest;
 import com.simplemobiletools.contacts.pro.testWorkflows.AddContactWorkflow;
 import com.simplemobiletools.contacts.pro.testWorkflows.GroupsWorkflow;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -13,6 +14,7 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class TestContactGroups extends BaseTestCase{
 
+    @Ignore
     @LargeTest
     @Test
     public void test_E2E_ContactGroupingInContactsList() {
