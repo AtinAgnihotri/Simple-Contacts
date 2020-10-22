@@ -14,21 +14,22 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static com.schibsted.spain.barista.interaction.BaristaClickInteractions.longClickOn;
 import static org.hamcrest.Matchers.allOf;
 import static org.junit.Assert.assertTrue;
 
 public class GroupsWorkflow {
 
-    public static void whenFirstThreeContactsAreSelectedAndGrouped() {
+    public static void whenFirstTwoContactsAreSelectedAndGrouped() {
         // Get the names of first three contacts
-        String [] firstThreeContacts = AddContactsUtils.getFirstNContactNames(3);
+        String [] firstTwoContacts = AddContactsUtils.getMtoNContactNames(1,3);
 
         // Long click first name to go into multi-selection mode
-        GlobalUtils.longClickItem(ContactInfoUtils.getContactItem(firstThreeContacts[0]));
+        longClickOn(firstTwoContacts[0]);
 
         // Click the other two normally to select them
-        GlobalUtils.clickItem(ContactInfoUtils.getContactItem(firstThreeContacts[1]));
-        GlobalUtils.clickItem(ContactInfoUtils.getContactItem(firstThreeContacts[2]));
+        GlobalUtils.clickItem(ContactInfoUtils.getContactItem(firstTwoContacts[1]));
+//        GlobalUtils.clickItem(ContactInfoUtils.getContactItem(firstTwoContacts[2]));
 
         // Click Add to group button
         GlobalUtils.clickItem(R.id.cab_add_to_group);
@@ -46,7 +47,7 @@ public class GroupsWorkflow {
         TabSwitchingUtils.switchToGroupsTab();
 
         // Click on Group Item
-        GlobalUtils.clickItem(GlobalUtils.TEST_GRP + " (3)");
+        GlobalUtils.clickItem(GlobalUtils.TEST_GRP + " (2)");
 
     }
 
@@ -65,13 +66,14 @@ public class GroupsWorkflow {
 
     }
 
-    public static void thenTestGroupHasFirstThreeContacts(UiDevice mUiDevice) {
-        boolean has3Contacts = GlobalUtils.checkIfViewHasNChildren(R.id.group_contacts_list, 3);
-        boolean first3ContactsMatch = true;
-        for (String contactName : AddContactsUtils.getFirstNContactNames(3)){
-            first3ContactsMatch = first3ContactsMatch && GlobalUtils.isElementAvailable(mUiDevice, By.text(contactName));
+    public static void thenTestGroupHasFirstTwoContacts(UiDevice mUiDevice) {
+        boolean has2Contacts = GlobalUtils.checkIfViewHasNChildren(R.id.group_contacts_list, 2);
+        boolean first2ContactsMatch = true;
+//        for (String contactName : AddContactsUtils.getFirstNContactNames(3)){
+        for (String contactName : AddContactsUtils.getMtoNContactNames(1,3)){
+            first2ContactsMatch = first2ContactsMatch && GlobalUtils.isElementAvailable(mUiDevice, By.text(contactName));
         }
-        assertTrue(has3Contacts && first3ContactsMatch);
+        assertTrue(has2Contacts && first2ContactsMatch);
     }
 
     public static void thenGroupsWarningToastShown() {
